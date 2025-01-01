@@ -118,6 +118,17 @@ spec:
   volumeName: demo-pv
 ```
 
+### Fetching ArgoCD External IP Adress
+
+```
+kubectl get service -n argocd
+```
+
+### Fetching ArgoCD Password
+It is common that applications save the password into a Kubernetes Secret. The secret values are base64 encoded, so to update the secret it has to be valid base64 echo newpassword | base64.
+```
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+```
 ### ArgoCD Application Structure 📊
 This diagram represents the structure of the ArgoCD application configuration.
 
