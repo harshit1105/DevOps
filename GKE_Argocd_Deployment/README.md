@@ -118,7 +118,7 @@ spec:
   volumeName: demo-pv
 ```
 
-### Fetching ArgoCD External IP Adress
+### Fetching ArgoCD External IP Address
 
 ```
 kubectl get service -n argocd
