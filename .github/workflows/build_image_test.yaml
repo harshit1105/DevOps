@@ -41,15 +41,15 @@ jobs:
           # Generate the full image tag
           IMAGE_TAG="${{ env.version }}-git-${GITHUB_ENV_sha}-image-${IMAGE_SHA}-${TIMESTAMP}"
           echo "image_tag=$IMAGE_TAG" >> $GITHUB_ENV
-
-      - name: Tag Docker Image
-        run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/my-image-name-1:${{ env.image_tag }} Python_App/
-
-      - name: Push Docker Image
-        run: |
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/my-image-name-1:${{ env.image_tag }}
-
+          
+      - name: Build and Push action
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ env.version }}-git-${GITHUB_ENV_sha}-image-${IMAGE_SHA}-${TIMESTAMP}
+        
       - name: Output Docker Image Tag
         run: |
           echo "Docker image pushed with tag: ${{ env.image_tag }}"
