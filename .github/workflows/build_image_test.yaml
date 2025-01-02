@@ -1,0 +1,55 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    paths:
+      - 'Python_App/**'
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Generate Version
+        id: version
+        run: |
+          # Start with v1 and increment based on commit count
+          VERSION="v$(git rev-list --count HEAD)"
+          echo "version=$VERSION" >> $GITHUB_ENV
+
+      - name: Extract Git SHA
+        id: git_sha
+        run: |
+          echo "sha=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+      - name: Build Docker Image
+        id: build_image
+        run: |
+          # Generate timestamps and image SHA
+          TIMESTAMP=$(date -u +"%Y-%m-%dT%H-%M-%S")
+          IMAGE_SHA=$(docker image inspect --format '{{.Id}}' $(docker build -q Python_App/) | cut -d ':' -f2 | head -1)
+
+          # Generate the full image tag
+          IMAGE_TAG="${{ env.version }}-git-${GITHUB_ENV_sha}-image-${IMAGE_SHA}-${TIMESTAMP}"
+          echo "image_tag=$IMAGE_TAG" >> $GITHUB_ENV
+
+      - name: Tag Docker Image
+        run: |
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/my-image-name:${{ env.image_tag }} Python_App/
+
+      - name: Push Docker Image
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/my-image-name:${{ env.image_tag }}
+
+      - name: Output Docker Image Tag
+        run: |
+          echo "Docker image pushed with tag: ${{ env.image_tag }}"
