@@ -48,7 +48,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ env.version }}-git-${GITHUB_ENV_sha}-image-${IMAGE_SHA}-${TIMESTAMP}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-image-1:${{ env.version }}-git-${GITHUB_ENV_sha}-image-${IMAGE_SHA}-${TIMESTAMP}
         
       - name: Output Docker Image Tag
         run: |
