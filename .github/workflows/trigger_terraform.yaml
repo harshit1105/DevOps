@@ -20,8 +20,8 @@ jobs:
       - name: Authenticate to GCP using Workload Identity Federation
         uses: google-github-actions/auth@v1
         with:
-          workload_identity_provider: "projects/1091294306406/locations/global/workloadIdentityPools/github-gha/providers/github"
-          service_account: "gha-sa@nitesh-gcp-444718.iam.gserviceaccount.com"
+          workload_identity_provider: "projects/46134322728/locations/global/workloadIdentityPools/ghaaction/providers/github"
+          service_account: "gha-466@kinetic-dogfish-446616-r8.iam.gserviceaccount.com"
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
