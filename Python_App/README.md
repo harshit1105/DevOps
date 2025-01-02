@@ -9,7 +9,7 @@ This guide explains how to deploy a simple Flask application on **Google Kuberne
 
 ## 🛠️ Application Code
 
-The application is a basic Flask web app that responds with "welcome" when accessed
+The application is a basic Flask web app that responds with "welcome" when accessed.
 
 ### 🐍 Flask Application (`main.py`)
 
