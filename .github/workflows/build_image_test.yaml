@@ -36,7 +36,3 @@ jobs:
           file: ./Python_App/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-image-1:${{github.run_id}}
-        
-      - name: Output Docker Image Tag
-        run: |
-          echo "Docker image pushed with tag: ${{ env.image_tag }}"
