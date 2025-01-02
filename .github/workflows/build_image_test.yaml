@@ -33,7 +33,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./Python_App/
+          file: ./Python_App/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-image-1:${{ env.version }}
         
