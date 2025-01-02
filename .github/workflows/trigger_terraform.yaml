@@ -3,7 +3,7 @@ name: Terraform GCP Setup
 on:
   push:
     paths:
-      - 'resource-creation-using-tf/**'
+      - 'resource-creation-using-tf/test/**'
 
 jobs:
   terraform:
