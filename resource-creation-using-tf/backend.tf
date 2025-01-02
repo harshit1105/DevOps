@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = "demo-gha"
+    bucket = "demogha"
     prefix = "resource-creation/"
   }
 }
