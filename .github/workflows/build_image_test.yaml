@@ -44,11 +44,11 @@ jobs:
 
       - name: Tag Docker Image
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/my-image-name:${{ env.image_tag }} Python_App/
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/my-image-name-1:${{ env.image_tag }} Python_App/
 
       - name: Push Docker Image
         run: |
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/my-image-name:${{ env.image_tag }}
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/my-image-name-1:${{ env.image_tag }}
 
       - name: Output Docker Image Tag
         run: |
