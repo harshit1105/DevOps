@@ -48,7 +48,7 @@ jobs:
 
     - name: Update tag in deployment
       run: |
-        sed -i '/image: /s/image: us-central1-docker.pkg.dev/\kinetic-dogfish-446616-r8/\simple-application/\my-image:.*/image: us-central1-docker.pkg.dev/\kinetic-dogfish-446616-r8/\simple-application/\my-image:${{github.run_id}}/' GKE_Argocd_Deployment/deployment.yaml
+        sed -i 's/my-image:.*/my-image:${{github.run_id}}/' GKE_Argocd_Deployment/deployment.yaml
 
     - name: Commit and push changes
       run: |
