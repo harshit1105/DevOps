@@ -30,8 +30,8 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t us-central1-docker.pkg.dev/devops-444320/simple-application/my-image:latest cicd_pythonapp/
+        docker build -t us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:latest cicd_pythonapp/
 
     - name: Push Docker image to Artifact Registry
       run: |
-        docker push us-central1-docker.pkg.dev/devops-444320/simple-application/my-image:latest
+        docker push us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:latest
