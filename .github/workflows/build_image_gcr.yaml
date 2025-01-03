@@ -48,7 +48,7 @@ jobs:
 
     - name: Update tag in deployment
       run: |
-        sed -i '/image:/s/latest/${{github.run_id}}/' GKE_Argocd_Deployment/deployment.yaml
+        sed -i '/image:/s/latest/"${{github.run_id}}"/' GKE_Argocd_Deployment/deployment.yaml
 
     - name: Commit and push changes
       run: |
