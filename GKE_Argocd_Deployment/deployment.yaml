@@ -1,26 +1,52 @@
+mage: .*:/slatest|[0-9]/12598512857/
 apiVersion: apps/v1
+mage: .*:/slatest|[0-9]/12598512857/
 kind: Deployment
+mage: .*:/slatest|[0-9]/12598512857/
 metadata:
+mage: .*:/slatest|[0-9]/12598512857/
   name: pvc-pod-deployment
+mage: .*:/slatest|[0-9]/12598512857/
   labels:
+mage: .*:/slatest|[0-9]/12598512857/
     app: pvc-pod
+mage: .*:/slatest|[0-9]/12598512857/
 spec:
+mage: .*:/slatest|[0-9]/12598512857/
   replicas: 2  # Number of replicas (adjust as needed)
+mage: .*:/slatest|[0-9]/12598512857/
   selector:
+mage: .*:/slatest|[0-9]/12598512857/
     matchLabels:
+mage: .*:/slatest|[0-9]/12598512857/
       app: pvc-pod
+mage: .*:/slatest|[0-9]/12598512857/
   template:
+mage: .*:/slatest|[0-9]/12598512857/
     metadata:
+mage: .*:/slatest|[0-9]/12598512857/
       labels:
+mage: .*:/slatest|[0-9]/12598512857/
         app: pvc-pod
+mage: .*:/slatest|[0-9]/12598512857/
     spec:
+mage: .*:/slatest|[0-9]/12598512857/
       containers:
+mage: .*:/slatest|[0-9]/12598512857/
         - name: pvc-pod-container
+mage: .*:/slatest|[0-9]/12598512857/
           image: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:latest
+mage: .*:/slatest|[0-9]/12598512857/
           volumeMounts:
+mage: .*:/slatest|[0-9]/12598512857/
             - mountPath: /data
+mage: .*:/slatest|[0-9]/12598512857/
               name: data
+mage: .*:/slatest|[0-9]/12598512857/
       volumes:
+mage: .*:/slatest|[0-9]/12598512857/
         - name: data
+mage: .*:/slatest|[0-9]/12598512857/
           persistentVolumeClaim:
+mage: .*:/slatest|[0-9]/12598512857/
             claimName: demo-pvc
