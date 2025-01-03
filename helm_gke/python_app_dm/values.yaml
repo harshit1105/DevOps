@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: harshit1105/my-image-1
-  tag: "12597054264"
+  tag: "12597303753"
   pullPolicy: IfNotPresent
 
 podLabels:
