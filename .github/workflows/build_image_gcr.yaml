@@ -3,7 +3,7 @@ name: Push Docker Image to Artifactory
 on:
   push:
     paths:
-      - 'Hss/**'
+      - 'Hss/test/**'
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
