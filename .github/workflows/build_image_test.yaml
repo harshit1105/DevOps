@@ -36,3 +36,20 @@ jobs:
           file: ./Python_App/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-image-1:${{github.run_id}}
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.TOKEN }}
+
+      - name: Update tag in Helm chart
+        run: |
+          sed -i 's/tag: .*/tag: "${{github.run_id}}"/' helm/go-web-app-chart/values.yaml
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "harshitsan@gmail.com"
+          git config --global user.name "harshit1105"
+          git add helm/go-web-app-chart/values.yaml
+          git commit -m "Update tag in Helm chart"
+          git push
