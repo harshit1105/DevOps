@@ -22,7 +22,7 @@ jobs:
       uses: google-github-actions/auth@v1
       with:
         workload_identity_provider: "projects/46134322728/locations/global/workloadIdentityPools/ghaction/providers/github"
-        service_account: "gha-123@kinetic-dogfish-446616-r8.iam.gserviceaccount.com"
+        service_account: "gha-466@kinetic-dogfish-446616-r8.iam.gserviceaccount.com"
         
     - name: Configure Docker for Google Cloud
       run: |
