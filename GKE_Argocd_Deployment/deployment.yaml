@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: pvc-pod-container
-          image: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:latest
+          image: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:12598081063
           volumeMounts:
             - mountPath: /data
               name: data
