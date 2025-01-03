@@ -1,26 +1,39 @@
+mage: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:.*/image: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:12598909342/
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pvc-pod-deployment
+mage: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:.*/image: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:12598909342/
   labels:
     app: pvc-pod
+mage: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:.*/image: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:12598909342/
 spec:
+mage: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:.*/image: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:12598909342/
   replicas: 2  # Number of replicas (adjust as needed)
+mage: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:.*/image: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:12598909342/
   selector:
+mage: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:.*/image: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:12598909342/
     matchLabels:
       app: pvc-pod
   template:
     metadata:
+mage: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:.*/image: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:12598909342/
       labels:
         app: pvc-pod
+mage: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:.*/image: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:12598909342/
     spec:
+mage: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:.*/image: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:12598909342/
       containers:
         - name: pvc-pod-container
+mage: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:.*/image: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:12598909342/
           image: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:12598772386
+mage: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:.*/image: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:12598909342/
           volumeMounts:
             - mountPath: /data
               name: data
+mage: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:.*/image: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:12598909342/
       volumes:
         - name: data
+mage: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:.*/image: us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:12598909342/
           persistentVolumeClaim:
             claimName: demo-pvc
