@@ -22,13 +22,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
        
-      - name: Generate Version
-        id: version
-        run: |
-          # Start with v1 and increment based on commit count
-          VERSION="v$(git rev-list --count HEAD)"
-          echo "version=$VERSION" >> $GITHUB_ENV
-
       - name: Build and Push action
         uses: docker/build-push-action@v6
         with:
