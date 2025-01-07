@@ -25,18 +25,17 @@ jobs:
         uses: hashicorp/setup-terraform@v3
 
       - name: Terraform fmt
-        id: fmt
-        run: terraform fmt -check
+        run: cd resource-creation-using-tf && terraform fmt -check
         continue-on-error: true
 
       - name: Terraform Init
-        run: cd GKE_Argocd_Deployment && terraform init
+        run: cd resource-creation-using-tf && terraform init
 
       - name: Terraform Validate
-        run: cd GKE_Argocd_Deployment && terraform validate -no-color
+        run: cd resource-creation-using-tf && terraform validate -no-color
 
       - name: Terraform Plan
-        run: cd GKE_Argocd_Deployment && terraform plan -var-file="terraform.tfvars"
+        run: cd resource-creation-using-tf && terraform plan -var-file="terraform.tfvars"
         continue-on-error: true
       
       - name: Verify cluster is created
