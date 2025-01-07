@@ -30,16 +30,13 @@ jobs:
         continue-on-error: true
 
       - name: Terraform Init
-        working-directory: ./GKE_Argocd_Deployment
-        run: terraform init
+        run: cd GKE_Argocd_Deployment && terraform init
 
       - name: Terraform Validate
-        working-directory: ./GKE_Argocd_Deployment
-        run: terraform validate -no-color
+        run: cd GKE_Argocd_Deployment && terraform validate -no-color
 
       - name: Terraform Plan
-        working-directory: ./GKE_Argocd_Deployment
-        run: terraform plan -var-file="terraform.tfvars"
+        run: cd GKE_Argocd_Deployment && terraform plan -var-file="terraform.tfvars"
         continue-on-error: true
       
       - name: Verify cluster is created
