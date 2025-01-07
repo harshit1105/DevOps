@@ -3,7 +3,7 @@
 *.tfstate
 *.tfstate.backup
 *.lock.hcl
-terraform-provider-google_v6.14.1_x5
+.terraform/
 # Ignore sensitive files
 secret.json
 private_key.pem
