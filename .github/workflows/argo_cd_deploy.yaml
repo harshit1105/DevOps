@@ -64,5 +64,9 @@ jobs:
       - name: Expose argocd service via load balancer
         run: |
           cd GKE_Argocd_Deployment
-          kubectl apply -f service.yaml -n argocd
+          if kubectl get service -n argocd | grep LoadBalancer; then
+            echo "ArgoCD Service is already installed, skipping installation."
+          else
+            kubectl apply -f service.yaml -n argocd
+            echo "ArgoCD LoadBalancer Service installed."
           kubectl get service -n argocd
