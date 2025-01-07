@@ -39,7 +39,7 @@ jobs:
 
       - name: Terraform Plan
         working-directory: ./GKE_Argocd_Deployment
-        run: terraform plan -no-color
+        run: terraform plan -var-file="terraform.tfvars"
         continue-on-error: true
       
       - name: Verify cluster is created
