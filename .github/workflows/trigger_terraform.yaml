@@ -1,35 +1,89 @@
 name: Terraform GCP Setup
 
-on:
-  push:
-    paths:
-      - 'resource-creation-using-tf/test/**'
+on: workflow_dispatch
 
 jobs:
-  terraform:
+  cluster-create-automation:
     runs-on: ubuntu-latest
 
     permissions:
       id-token: write
       contents: read
-
+  
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Authenticate to GCP using Workload Identity Federation
-        uses: google-github-actions/auth@v1
+      - name: Google Cloud Login
+        uses: google-github-actions/auth@v2.1.0
         with:
           workload_identity_provider: "projects/46134322728/locations/global/workloadIdentityPools/ghaaction/providers/github"
           service_account: "gha-466@kinetic-dogfish-446616-r8.iam.gserviceaccount.com"
+          token_format: access_token 
 
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v2
-        with:
-          terraform_version: 1.10.0
+        uses: hashicorp/setup-terraform@v3
 
-      - name: Terraform Init 
-        run: cd resource-creation-using-tf && terraform init 
+      - name: Terraform fmt
+        id: fmt
+        run: terraform fmt -check
+        continue-on-error: true
+
+      - name: Terraform Init
+        working-directory: ./GKE_Argocd_Deployment
+        run: terraform init
+
+      - name: Terraform Validate
+        working-directory: ./GKE_Argocd_Deployment
+        run: terraform validate -no-color
 
       - name: Terraform Plan
-        run: cd resource-creation-using-tf && terraform plan -var-file="terraform.tfvars"
+        working-directory: ./GKE_Argocd_Deployment
+        run: terraform plan -no-color
+        continue-on-error: true
+      
+      - name: Verify cluster is created
+        run: |
+          gcloud container clusters list 
+
+      - name: Connect to cluster
+        run: |
+          # Ensure gcloud CLI is configured and authenticate using the plugin
+          gcloud container clusters get-credentials my-gke-cluster --region us-central1 --project kinetic-dogfish-446616-r8
+          echo "connected to cluster"
+
+      - name: Get cluster credentials 
+        uses: google-github-actions/get-gke-credentials@v1 
+        with:
+          cluster_name: my-gke-cluster
+          location: us-central1
+          project: kinetic-dogfish-446616-r8
+
+      - name: Check and create namespace for ArgoCD
+        run: |
+          if kubectl get namespace argocd; then
+            echo "Namespace 'argocd' already exists, skipping creation."
+          else
+            kubectl create namespace argocd
+            echo "Namespace 'argocd' created."
+          fi
+      
+      - name: Check and install ArgoCD
+        run: |
+          if kubectl get deployments -n argocd | grep -q argocd-server; then
+            echo "ArgoCD is already installed, skipping installation."
+          else
+            kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+            echo "ArgoCD installed."
+          fi
+      
+
+      - name: Verify argocd installation
+        run: |
+          kubectl get pods -n argocd 
+
+      - name: Expose argocd service via load balancer
+        run: |
+          cd GKE_Argocd_Deployment
+          kubectl apply -f service.yaml -n argocd
+          kubectl get service -n argocd
