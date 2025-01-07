@@ -17,14 +17,10 @@ jobs:
       - name: Google Cloud Login
         uses: google-github-actions/auth@v2.1.0
         with:
-          workload_identity_provider: "projects/1091294306406/locations/global/workloadIdentityPools/github-gha/providers/github"
-          service_account: "gha-sa@nitesh-gcp-444718.iam.gserviceaccount.com"
+          workload_identity_provider: "projects/46134322728/locations/global/workloadIdentityPools/ghaaction/providers/github"
+          service_account: "gha-466@kinetic-dogfish-446616-r8.iam.gserviceaccount.com"
           token_format: access_token 
-
-      - name: Create cluster
-        run: |
-          gcloud container clusters create gke-cluster --region=us-central1 --num-nodes=2 --disk-size=10 || echo "Cluster already exists"
-          
+      
       - name: Verify cluster is created
         run: |
           gcloud container clusters list 
@@ -32,15 +28,15 @@ jobs:
       - name: Connect to cluster
         run: |
           # Ensure gcloud CLI is configured and authenticate using the plugin
-          gcloud container clusters get-credentials gke-cluster --region us-central1 --project nitesh-gcp-444718
+          gcloud container clusters get-credentials my-gke-cluster --region us-central1 --project kinetic-dogfish-446616-r8
           echo "connected to cluster"
 
       - name: Get cluster credentials 
         uses: google-github-actions/get-gke-credentials@v1 
         with:
-          cluster_name: gke-cluster
+          cluster_name: my-gke-cluster
           location: us-central1
-          project: nitesh-gcp-444718
+          project: kinetic-dogfish-446616-r8
 
       - name: Check and create namespace for ArgoCD
         run: |
