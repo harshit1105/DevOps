@@ -1,4 +1,6 @@
 kind: Deployment
+metadata:
+  name: my-deployment
 labels:
   app: my-app
   environment: dev
