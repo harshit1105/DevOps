@@ -7,7 +7,7 @@ labels:
 spec:
   replicaset: 3
   containers:
-    - name: "container-1"
-      image: "nginx"
+    - name: container-1
+      image: nginx
       ports:
         - containerPort: 80
