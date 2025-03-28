@@ -1,0 +1,203 @@
+addonsConfig:
+  gcePersistentDiskCsiDriverConfig:
+    enabled: true
+  kubernetesDashboard:
+    disabled: true
+  networkPolicyConfig:
+    disabled: true
+autopilot: {}
+autoscaling:
+  autoscalingProfile: BALANCED
+binaryAuthorization: {}
+clusterIpv4Cidr: 10.32.0.0/14
+controlPlaneEndpointsConfig:
+  dnsEndpointConfig:
+    allowExternalTraffic: false
+    endpoint: gke-0f44c622946c4ab1835575ab511d1ead5365-46134322728.us-central1.gke.goog
+  ipEndpointsConfig:
+    authorizedNetworksConfig:
+      gcpPublicCidrsAccessEnabled: true
+    enablePublicEndpoint: true
+    enabled: true
+    privateEndpoint: 10.128.0.28
+    publicEndpoint: 34.69.59.161
+createTime: '2025-03-25T03:46:28+00:00'
+currentMasterVersion: 1.31.6-gke.1020000
+currentNodeCount: 3
+currentNodeVersion: 1.31.6-gke.1020000
+databaseEncryption:
+  currentState: CURRENT_STATE_DECRYPTED
+  state: DECRYPTED
+defaultMaxPodsConstraint:
+  maxPodsPerNode: '110'
+endpoint: 34.69.59.161
+enterpriseConfig:
+  clusterTier: STANDARD
+etag: 23a641bd-86b5-4210-89c4-a8f2c36224d2
+id: 0f44c622946c4ab1835575ab511d1ead53651975f09045e0a777b905f3915248
+initialClusterVersion: 1.31.6-gke.1020000
+initialNodeCount: 1
+instanceGroupUrls:
+- https://www.googleapis.com/compute/v1/projects/kinetic-dogfish-446616-r8/zones/us-central1-c/instanceGroupManagers/gke-my-gke-cluster-default-pool-c5d9ef3e-grp
+- https://www.googleapis.com/compute/v1/projects/kinetic-dogfish-446616-r8/zones/us-central1-b/instanceGroupManagers/gke-my-gke-cluster-default-pool-76a107ca-grp
+- https://www.googleapis.com/compute/v1/projects/kinetic-dogfish-446616-r8/zones/us-central1-a/instanceGroupManagers/gke-my-gke-cluster-default-pool-76894b97-grp
+ipAllocationPolicy:
+  clusterIpv4Cidr: 10.32.0.0/14
+  clusterIpv4CidrBlock: 10.32.0.0/14
+  clusterSecondaryRangeName: gke-my-gke-cluster-pods-0f44c622
+  defaultPodIpv4RangeUtilization: 0.0029
+  podCidrOverprovisionConfig: {}
+  servicesIpv4Cidr: 34.118.224.0/20
+  servicesIpv4CidrBlock: 34.118.224.0/20
+  stackType: IPV4
+  useIpAliases: true
+labelFingerprint: 8ba938ed
+legacyAbac: {}
+location: us-central1
+locations:
+- us-central1-c
+- us-central1-b
+- us-central1-a
+loggingConfig:
+  componentConfig:
+    enableComponents:
+    - SYSTEM_COMPONENTS
+    - WORKLOADS
+loggingService: logging.googleapis.com/kubernetes
+maintenancePolicy:
+  resourceVersion: e3b0c442
+masterAuth:
+  clientCertificateConfig: {}
+  clusterCaCertificate: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMRENDQXBTZ0F3SUJBZ0lRRytxdW1nWGF1WDRIVklCdXBtV2tFVEFOQmdrcWhraUc5dzBCQVFzRkFEQXYKTVMwd0t3WURWUVFERXlRNVl6QTJNVEpqWXkwd1lqWmtMVFF4TmpZdFltSmlZeTAzWVdWaE1EVXpPVE0wWVRNdwpJQmNOTWpVd016STFNREkwTmpJNVdoZ1BNakExTlRBek1UZ3dNelEyTWpsYU1DOHhMVEFyQmdOVkJBTVRKRGxqCk1EWXhNbU5qTFRCaU5tUXROREUyTmkxaVltSmpMVGRoWldFd05UTTVNelJoTXpDQ0FhSXdEUVlKS29aSWh2Y04KQVFFQkJRQURnZ0dQQURDQ0FZb0NnZ0dCQU9IMmZYV1JGdjFGSHF3QUFsRkJkcmVwVkV3NVlQRGFsOElJOHF3bApJK1VVQVVLYTUxVGJ3bUZndEE0SWN6Z1BjOVRhWHJUVkE5Rjd6cFF4UERBSks0cEltZXVXa1grWFMxVHd3NnRNCmlacmFNZitXSUh0b25IWUIvUHZ2ajVBYjBCU3daZ0NXTnorM0VvMmNHNnRvZExsL2xJcHhKdFhBdUxQZk05L2wKejVuNG16NFZiSGZLVk1lWWRvSDdQbk9tRTkwbzVZU1NFUjcrV1hjRnFjNmNFbHkvMU5VVXB2SjRjenpGd011aApQOWs5U1RmcURPSWl6UFZsa0VUZ2JLaXNVYk5ic2poL3dPQjQ1WC9kRlJrRFFoT0Q4c1Bld2lFb2JZZDN3R2ZRCnVReldlcGliTU8relp1VW1ZTFFzcmYzUTE5V3N0T0JGbXg5L2F4R3EvZDA3aTNocWVNTGFvcXE2c25HbzNVV1kKek85UVZhbHY3RkJHSC96RlJxSUM1WFoyQk5vcm0wMGJNT293a3NvWlc3ODFxZXBXUXoxazFZR1RnbHVSaVc1Vgp3Mnd3YUFvUWFoOStWb2E4SG1KbTkrcHFOVVVGZlo2NnFJZVl0VG13dlRCbVhVS0Z1ZTNVSG9sQVFxWm9XcSsvCmdoRWt2Lzg0KzVlQ0djUHQwWjhBZnBqam9RSURBUUFCbzBJd1FEQU9CZ05WSFE4QkFmOEVCQU1DQWdRd0R3WUQKVlIwVEFRSC9CQVV3QXdFQi96QWRCZ05WSFE0RUZnUVVmeUprbFhhRklUYm1iMlJVbUdERjRjbFE3WUV3RFFZSgpLb1pJaHZjTkFRRUxCUUFEZ2dHQkFEK2NJaXZUbGZNSWRKWnRzQTc1N3NDcnFOVVdNckt2WkZPclJvZVRoeDlECktUVE96SEY3UmFUZ2JFNDUzbFJnU2VjZ1dXQ0J5QmRhZExrcXNrV0VLejNJZjhjNy92SFIreWVTbWpzSXdLRTQKR0FBWitEaWc0L1lTcE9UYlRacDBNSHlsM0MxYnNrR2hiU3VyREErSk5jSkpPZXBqMUZxQ2NZNmRCdFJVQWNDNQpyV3Y5RjE1elZkdS9zQlBXYmlpaU5nSWNFYTFnclp3b0xXVjNVSS9DazF6YVZQdlNOV0JvWWM5TTJ5YnQrL3NsCnVnQTQ3aDhzamx6NStGWDhFQnY3RlNHVFRxeWl0OHU3NngvamN2SzI2YkpoUDRYc0JzdDlRS1FhelV3THlLWmYKQ2J6Z0hXZEZWUjcwT0VIU2hHS21acm4rK0RTUFZibUF3MEpwb28xeThHQnB6dEY4RkpKd2J0VXlEUytxSHBjVApXc0xWRXpkaHFMSVNKQTkzaGRpd1ovc3JyNDAyU2lIb3dxeWhKKzNJdktGbU9Zb1ErMjhORDdOMy9BRmQ2RWp0ClJZTnZMd0QzTHFLWGxhZStMVWNUSDMwUWREdXIzSmdxOGRsSWg4M05HSjNENjAzWXVnaUkrNlB0R3BVVGRBUVUKR09FYU15bnI1TlpIaVR6Qnl5eFgwQT09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+masterAuthorizedNetworksConfig:
+  gcpPublicCidrsAccessEnabled: true
+monitoringConfig:
+  advancedDatapathObservabilityConfig: {}
+  componentConfig:
+    enableComponents:
+    - SYSTEM_COMPONENTS
+    - STORAGE
+    - HPA
+    - POD
+    - DAEMONSET
+    - DEPLOYMENT
+    - STATEFULSET
+    - KUBELET
+    - CADVISOR
+  managedPrometheusConfig:
+    enabled: true
+monitoringService: monitoring.googleapis.com/kubernetes
+name: my-gke-cluster
+network: default
+networkConfig:
+  defaultSnatStatus: {}
+  network: projects/kinetic-dogfish-446616-r8/global/networks/default
+  serviceExternalIpsConfig: {}
+  subnetwork: projects/kinetic-dogfish-446616-r8/regions/us-central1/subnetworks/default
+nodeConfig:
+  diskSizeGb: 100
+  diskType: pd-balanced
+  effectiveCgroupMode: EFFECTIVE_CGROUP_MODE_V2
+  imageType: COS_CONTAINERD
+  kubeletConfig:
+    insecureKubeletReadonlyPortEnabled: true
+  machineType: e2-medium
+  metadata:
+    disable-legacy-endpoints: 'true'
+  oauthScopes:
+  - https://www.googleapis.com/auth/devstorage.read_only
+  - https://www.googleapis.com/auth/logging.write
+  - https://www.googleapis.com/auth/monitoring
+  - https://www.googleapis.com/auth/service.management.readonly
+  - https://www.googleapis.com/auth/servicecontrol
+  - https://www.googleapis.com/auth/trace.append
+  resourceLabels:
+    goog-gke-node-pool-provisioning-model: on-demand
+  serviceAccount: default
+  shieldedInstanceConfig:
+    enableIntegrityMonitoring: true
+  windowsNodeConfig: {}
+nodePoolDefaults:
+  nodeConfigDefaults:
+    loggingConfig:
+      variantConfig:
+        variant: DEFAULT
+nodePools:
+- config:
+    diskSizeGb: 100
+    diskType: pd-balanced
+    effectiveCgroupMode: EFFECTIVE_CGROUP_MODE_V2
+    imageType: COS_CONTAINERD
+    kubeletConfig:
+      insecureKubeletReadonlyPortEnabled: true
+    machineType: e2-medium
+    metadata:
+      disable-legacy-endpoints: 'true'
+    oauthScopes:
+    - https://www.googleapis.com/auth/devstorage.read_only
+    - https://www.googleapis.com/auth/logging.write
+    - https://www.googleapis.com/auth/monitoring
+    - https://www.googleapis.com/auth/service.management.readonly
+    - https://www.googleapis.com/auth/servicecontrol
+    - https://www.googleapis.com/auth/trace.append
+    resourceLabels:
+      goog-gke-node-pool-provisioning-model: on-demand
+    serviceAccount: default
+    shieldedInstanceConfig:
+      enableIntegrityMonitoring: true
+    windowsNodeConfig: {}
+  etag: 729d1f3c-076d-4039-95dd-80fc15bd6aed
+  initialNodeCount: 1
+  instanceGroupUrls:
+  - https://www.googleapis.com/compute/v1/projects/kinetic-dogfish-446616-r8/zones/us-central1-c/instanceGroupManagers/gke-my-gke-cluster-default-pool-c5d9ef3e-grp
+  - https://www.googleapis.com/compute/v1/projects/kinetic-dogfish-446616-r8/zones/us-central1-b/instanceGroupManagers/gke-my-gke-cluster-default-pool-76a107ca-grp
+  - https://www.googleapis.com/compute/v1/projects/kinetic-dogfish-446616-r8/zones/us-central1-a/instanceGroupManagers/gke-my-gke-cluster-default-pool-76894b97-grp
+  locations:
+  - us-central1-c
+  - us-central1-b
+  - us-central1-a
+  management:
+    autoRepair: true
+    autoUpgrade: true
+  maxPodsConstraint:
+    maxPodsPerNode: '110'
+  name: default-pool
+  networkConfig:
+    podIpv4CidrBlock: 10.32.0.0/14
+    podIpv4RangeUtilization: 0.0029
+    podRange: gke-my-gke-cluster-pods-0f44c622
+  podIpv4CidrSize: 24
+  selfLink: https://container.googleapis.com/v1/projects/kinetic-dogfish-446616-r8/locations/us-central1/clusters/my-gke-cluster/nodePools/default-pool
+  status: RUNNING
+  upgradeSettings:
+    maxSurge: 1
+    strategy: SURGE
+  version: 1.31.6-gke.1020000
+notificationConfig:
+  pubsub: {}
+podAutoscaling:
+  hpaProfile: HPA_PROFILE_UNSPECIFIED
+privateClusterConfig:
+  privateEndpoint: 10.128.0.28
+  publicEndpoint: 34.69.59.161
+rbacBindingConfig:
+  enableInsecureBindingSystemAuthenticated: true
+  enableInsecureBindingSystemUnauthenticated: true
+releaseChannel:
+  channel: REGULAR
+resourceLabels:
+  env: prod
+  environment: prod
+  teams: noc
+satisfiesPzi: false
+satisfiesPzs: false
+securityPostureConfig:
+  mode: BASIC
+  vulnerabilityMode: VULNERABILITY_MODE_UNSPECIFIED
+selfLink: https://container.googleapis.com/v1/projects/kinetic-dogfish-446616-r8/locations/us-central1/clusters/my-gke-cluster
+servicesIpv4Cidr: 34.118.224.0/20
+shieldedNodes:
+  enabled: true
+status: RUNNING
+subnetwork: default
+zone: us-central1
