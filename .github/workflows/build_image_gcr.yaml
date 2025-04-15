@@ -21,8 +21,8 @@ jobs:
     - name: Authenticate to GCP using Workload Identity Federation
       uses: google-github-actions/auth@v1
       with:
-        workload_identity_provider: "projects/46134322728/locations/global/workloadIdentityPools/ghaaction/providers/github"
-        service_account: "gha-466@kinetic-dogfish-446616-r8.iam.gserviceaccount.com"
+        workload_identity_provider: "projects/867253606037/locations/global/workloadIdentityPools/ghaction/providers/github"
+        service_account: "gha-466@synthetic-keel-456913-h6.iam.gserviceaccount.com"
         
     - name: Configure Docker for Google Cloud
       run: |
@@ -30,11 +30,11 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:${{github.run_id}} ci_python_app/
+        docker build -t us-central1-docker.pkg.dev/synthetic-keel-456913-h6/simple-application/my-image:${{github.run_id}} ci_python_app/
 
     - name: Push Docker image to Artifact Registry
       run: |
-        docker push us-central1-docker.pkg.dev/kinetic-dogfish-446616-r8/simple-application/my-image:${{github.run_id}}
+        docker push us-central1-docker.pkg.dev/synthetic-keel-456913-h6/simple-application/my-image:${{github.run_id}}
 
   update-newtag-in-deployment:
     runs-on: ubuntu-latest
