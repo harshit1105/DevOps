@@ -17,10 +17,10 @@ jobs:
       - name: Google Cloud Login
         uses: google-github-actions/auth@v2.1.0
         with:
-          workload_identity_provider: "projects/46134322728/locations/global/workloadIdentityPools/ghaaction/providers/github"
-          service_account: "gha-466@kinetic-dogfish-446616-r8.iam.gserviceaccount.com"
+          workload_identity_provider: "projects/867253606037/locations/global/workloadIdentityPools/ghaction/providers/github"
+          service_account: "gha-466@synthetic-keel-456913-h6.iam.gserviceaccount.com"
           token_format: access_token 
-      
+
       - name: Verify cluster is created
         run: |
           gcloud container clusters list 
