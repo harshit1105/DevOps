@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"firewall","Source":"./modules/firewall","Dir":"modules/firewall"},{"Key":"linux_instance","Source":"./modules/compute","Dir":"modules/compute"},{"Key":"service_account","Source":"./modules/service_account","Dir":"modules/service_account"},{"Key":"windows_instance","Source":"./modules/compute","Dir":"modules/compute"}]}
