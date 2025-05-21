@@ -4,9 +4,11 @@
 *.tfstate.backup
 *.lock.hcl
 resource-creation-using-tf/.terraform/*
+*/.terraform/*
 # Ignore sensitive files
 secret.json
 private_key.pem
 .env
 # Ignore Terraform plan files
 *.tfplan
+
