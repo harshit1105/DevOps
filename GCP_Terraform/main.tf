@@ -44,7 +44,7 @@ module "linux_instance" {
   project               = var.project
   zone                  = var.zone
   machine_type          = var.machine_type
-  dynatrace_api_token   = var.dynatrace_api_token
+#  dynatrace_api_token   = var.dynatrace_api_token
   service_account_email = module.service_account.default_email
   depends_on            = [module.service_account]
 }

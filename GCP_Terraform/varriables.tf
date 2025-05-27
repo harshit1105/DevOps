@@ -24,11 +24,11 @@ variable "machine_type" {
   type        = string
 }
 
-variable "dynatrace_api_token" {
-  description = "Dynatrace API Token"
-  type        = string
-  sensitive   = true
-}
+#variable "dynatrace_api_token" {
+#  description = "Dynatrace API Token"
+#  type        = string
+#  sensitive   = true
+#}
 
 variable "account_id" {
   description = "Service Account ID"
