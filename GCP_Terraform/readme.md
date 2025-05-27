@@ -48,6 +48,8 @@ This repository provides a modular Terraform setup to deploy multiple Compute En
     display_name        = "Windows Instance Service Account"
     secret_id           = "dynatrace-api-token"
     ```
+> ⚠️ **Note:**  
+> Kindly Create `terraform.tfvars` files before running below command and add the above values as per your requirement.
 
 3. **Initialize Terraform:**
     ```sh
