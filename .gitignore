@@ -1,5 +1,4 @@
 # Ignore Terraform variable files
-*.tfvars
 *.tfstate
 *.tfstate.backup
 *.lock.hcl
