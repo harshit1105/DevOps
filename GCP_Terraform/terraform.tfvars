@@ -19,4 +19,5 @@ target_tags   = ["debian-instance"]
 account_id   = "windows-instance-sa"
 display_name = "Windows Instance Service"
 secret_id    = "dynatrace-api-token"
+instance_name_1 = "activegate-dynatrace-01"
 

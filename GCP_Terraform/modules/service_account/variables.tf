@@ -14,8 +14,9 @@ variable "project" {
 }
 
 variable "account_id" {
-  description = "Service Account ID"
-  type = string
+  description = "Service account ID"
+  type        = string
+  default     = "windows-instance-sa"
 }
 variable "display_name" {
   description = "Service Account Display Name"

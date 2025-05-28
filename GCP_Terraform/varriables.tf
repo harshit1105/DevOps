@@ -9,6 +9,11 @@
 
 # Define Variable instance_name
 
+variable "instance_name_1" {
+  description = "Name of the ActiveGate instance"
+  type        = string
+}
+
 variable "project" {
   description = "Project name"
   type        = string
@@ -31,8 +36,9 @@ variable "machine_type" {
 #}
 
 variable "account_id" {
-  description = "Service Account ID"
+  description = "Service account ID"
   type        = string
+  default     = "windows-instance-sa"
 }
 variable "display_name" {
   description = "Service Account Display Name"

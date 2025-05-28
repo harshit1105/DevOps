@@ -37,10 +37,22 @@ module "service_account" {
   project      = var.project
 }
 
+
 module "linux_instance" {
   source                = "./modules/compute"
   for_each              = toset(local.instance_names)
   instance_name         = each.value
+  project               = var.project
+  zone                  = var.zone
+  machine_type          = var.machine_type
+#  dynatrace_api_token   = var.dynatrace_api_token
+  service_account_email = module.service_account.default_email
+  depends_on            = [module.activegate_instance]
+}
+
+module "activegate_instance" {
+  source                = "./modules/compute_activegate"
+  instance_name_1         = var.instance_name_1
   project               = var.project
   zone                  = var.zone
   machine_type          = var.machine_type

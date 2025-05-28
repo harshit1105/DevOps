@@ -11,5 +11,4 @@ resource "google_secret_manager_secret_iam_member" "accessor" {
   role      = "roles/secretmanager.secretAccessor"
   member    = "serviceAccount:${google_service_account.default.email}"
   project   = var.project
-  
 }
