@@ -17,8 +17,8 @@ jobs:
       - name: Google Cloud Login
         uses: google-github-actions/auth@v2.1.0
         with:
-          workload_identity_provider: "projects/867253606037/locations/global/workloadIdentityPools/ghaction/providers/github"
-          service_account: "gha-466@synthetic-keel-456913-h6.iam.gserviceaccount.com"
+          workload_identity_provider: "projects/221471093942/locations/global/workloadIdentityPools/my-pool/providers/github"
+          service_account: "github-actions-sa@observability-466201.iam.gserviceaccount.com"
           token_format: access_token 
           
       - name: Setup Terraform
@@ -45,7 +45,7 @@ jobs:
       - name: Connect to cluster
         run: |
           # Ensure gcloud CLI is configured and authenticate using the plugin
-          gcloud container clusters get-credentials my-gke-cluster --region us-central1 --project kinetic-dogfish-446616-r8
+          gcloud container clusters get-credentials my-gke-cluster --region us-central1 --project observability-466201
           echo "connected to cluster"
 
       - name: Get cluster credentials 
@@ -53,7 +53,7 @@ jobs:
         with:
           cluster_name: my-gke-cluster
           location: us-central1
-          project: kinetic-dogfish-446616-r8
+          project: observability-466201
 
       - name: Check and create namespace for ArgoCD
         run: |
