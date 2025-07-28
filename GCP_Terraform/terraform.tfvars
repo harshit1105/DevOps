@@ -3,7 +3,7 @@
 ##################################
 
 zone         = "asia-south1-b"
-project      = "synthetic-keel-456913-h6"
+project      = "observability-466201"
 machine_type = "n1-standard-2"
 
 
