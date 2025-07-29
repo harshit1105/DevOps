@@ -1,6 +1,6 @@
 # Create a Compute Instance
 data "google_secret_manager_secret_version" "dynatrace_token" {
-  secret  = "dynatrace-secret"
+  secret  = "dynatrace_secret"
   project = var.project
 }
 
