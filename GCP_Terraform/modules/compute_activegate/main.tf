@@ -1,6 +1,6 @@
 # Create a Compute Instance
 data "google_secret_manager_secret_version" "dynatrace_token" {
-  secret  = "dynatrace_secret"
+  secret  = "dynatrace-api-token"
   project = var.project
 }
 
@@ -38,10 +38,10 @@ metadata = {
     set -x
     exec > /var/log/startup-script.log 2>&1
     DYNATRACE_API_TOKEN='${data.google_secret_manager_secret_version.dynatrace_token.secret_data}'
-    wget -O Dynatrace-ActiveGate-Linux-x86-1.313.24.sh "https://ixw33767.live.dynatrace.com/api/v1/deployment/installer/gateway/unix/latest?arch=x86" --header="Authorization: Api-Token $DYNATRACE_API_TOKEN"
-    wget https://ca.dynatrace.com/dt-root.cert.pem ; ( echo 'Content-Type: multipart/signed; protocol="application/x-pkcs7-signature"; micalg="sha-256"; boundary="--SIGNED-INSTALLER"'; echo ; echo ; echo '----SIGNED-INSTALLER' ; cat Dynatrace-ActiveGate-Linux-x86-1.313.24.sh ) | openssl cms -verify -CAfile dt-root.cert.pem > /dev/null
-    /bin/bash Dynatrace-ActiveGate-Linux-x86-1.313.24.sh
-    rm -rf Dynatrace-ActiveGate-Linux-x86-1.313.24.sh
+    wget -O Dynatrace-ActiveGate-Linux-x86-1.317.26.sh "https://nxy41179.live.dynatrace.com/api/v1/deployment/installer/gateway/unix/latest?arch=x86" --header="Authorization: Api-Token $DYNATRACE_API_TOKEN"
+    wget https://ca.dynatrace.com/dt-root.cert.pem ; ( echo 'Content-Type: multipart/signed; protocol="application/x-pkcs7-signature"; micalg="sha-256"; boundary="--SIGNED-INSTALLER"'; echo ; echo ; echo '----SIGNED-INSTALLER' ; cat Dynatrace-ActiveGate-Linux-x86-1.317.26.sh ) | openssl cms -verify -CAfile dt-root.cert.pem > /dev/null
+    /bin/bash Dynatrace-ActiveGate-Linux-x86-1.317.26.sh
+    rm -rf Dynatrace-ActiveGate-Linux-x86-1.317.26.sh
   EOT
 }
 
