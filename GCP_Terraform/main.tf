@@ -12,9 +12,9 @@
 
 locals {
   instance_names = [
-    "deb-dyn-01",
-    "deb-dyn-02",
-    "deb-dyn-03"
+    "mh-ths-110-art",
+    "gj-hss-111-it",
+    "up-rks-108-kc"
   ]
 }
 
