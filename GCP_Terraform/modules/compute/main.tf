@@ -1,6 +1,6 @@
 # Create a Compute Instance
 data "google_secret_manager_secret_version" "dynatrace_token" {
-  secret  = "dynatrace_secret"
+  secret  = "dynatrace-api-token"
   project = var.project
 }
 
@@ -38,10 +38,10 @@ metadata = {
     set -x
     exec > /var/log/startup-script.log 2>&1
     DYNATRACE_API_TOKEN='${data.google_secret_manager_secret_version.dynatrace_token.secret_data}'
-    wget -O Dynatrace-OneAgent-Linux-1.313.45.20250521-164818.sh "https://ixw33767.live.dynatrace.com/api/v1/deployment/installer/agent/unix/default/latest?arch=x86" --header="Authorization: Api-Token $DYNATRACE_API_TOKEN"
-    wget https://ca.dynatrace.com/dt-root.cert.pem ; ( echo 'Content-Type: multipart/signed; protocol="application/x-pkcs7-signature"; micalg="sha-256"; boundary="--SIGNED-INSTALLER"'; echo ; echo ; echo '----SIGNED-INSTALLER' ; cat Dynatrace-OneAgent-Linux-1.313.45.20250521-164818.sh ) | openssl cms -verify -CAfile dt-root.cert.pem > /dev/null
-    /bin/sh Dynatrace-OneAgent-Linux-1.313.45.20250521-164818.sh --set-monitoring-mode=fullstack --set-app-log-content-access=true
-    rm -rf Dynatrace-OneAgent-Linux-1.313.45.20250521-164818.sh
+    wget -O Dynatrace-OneAgent-Linux-1.317.58.20250725-104932.sh "https://nxy41179.live.dynatrace.com/api/v1/deployment/installer/agent/unix/default/latest?arch=x86" --header="Authorization: Api-Token $DYNATRACE_API_TOKEN"
+    wget https://ca.dynatrace.com/dt-root.cert.pem ; ( echo 'Content-Type: multipart/signed; protocol="application/x-pkcs7-signature"; micalg="sha-256"; boundary="--SIGNED-INSTALLER"'; echo ; echo ; echo '----SIGNED-INSTALLER' ; cat Dynatrace-OneAgent-Linux-1.317.58.20250725-104932.sh ) | openssl cms -verify -CAfile dt-root.cert.pem > /dev/null
+    /bin/sh Dynatrace-OneAgent-Linux-gcp-india-mum-1.317.58.20250725-104932.sh --set-monitoring-mode=fullstack --set-app-log-content-access=true --set-network-zone=gcp-india-mum --set-host-group=_e_dev_a_app2_p_project2
+    rm -rf Dynatrace-OneAgent-Linux-gcp-india-mum-1.317.58.20250725-104932.sh
   EOT
 }
 
